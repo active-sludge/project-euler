@@ -1,0 +1,33 @@
+/*
+ A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+ 
+ Find the largest palindrome made from the product of two 3-digit numbers.
+ */
+
+var possiblePalindrome = 0
+var largestPalindrome = 0
+
+for multiplier1 in stride(from: 999, to: 900, by: -1) {
+    
+    for multiplier2 in stride(from: 999, to: 900, by: -1) {
+        if multiplier2 == multiplier1 {
+            break
+        }
+        possiblePalindrome = multiplier1 * multiplier2
+        
+        let strPossiblePalindrom = String(possiblePalindrome)
+        let reversedPossiblePalindrome = String(strPossiblePalindrom.reversed())
+        
+        if reversedPossiblePalindrome == strPossiblePalindrom {
+            print("\(multiplier1) x \(multiplier2) = \(possiblePalindrome)")
+            print("\(possiblePalindrome) is a palindrome number.")
+            if possiblePalindrome > largestPalindrome {
+                largestPalindrome = possiblePalindrome
+            }
+        }
+    }
+}
+
+print("\(largestPalindrome) is the largest one.")
+
+

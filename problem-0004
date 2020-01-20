@@ -7,12 +7,10 @@
 var possiblePalindrome = 0
 var largestPalindrome = 0
 
-for multiplier1 in stride(from: 999, to: 900, by: -1) {
+loop: for multiplier1 in stride(from: 999, to: 900, by: -1) {
     
     for multiplier2 in stride(from: 999, to: 900, by: -1) {
-        if multiplier2 == multiplier1 {
-            break
-        }
+        
         possiblePalindrome = multiplier1 * multiplier2
         
         let strPossiblePalindrom = String(possiblePalindrome)
@@ -23,11 +21,11 @@ for multiplier1 in stride(from: 999, to: 900, by: -1) {
             print("\(possiblePalindrome) is a palindrome number.")
             if possiblePalindrome > largestPalindrome {
                 largestPalindrome = possiblePalindrome
+                break loop
             }
         }
     }
 }
 
 print("\(largestPalindrome) is the largest one.")
-
 
